@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingLeft="@dimen/margin_medium_2"
+    android:paddingRight="@dimen/margin_medium_2"
+    android:paddingTop="@dimen/margin_medium_2">
+
+    <TextView
+        android:id="@+id/tv_health_info_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
+        android:lineSpacingMultiplier="1.3"
+        android:text="ျခာက္နာရီခန္႔ မတ္တပ္ရပ္ျခင္းျဖင္႔ ခႏၶာကိုယ္မွ အဆီသံုး"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/text_regular_2x" />
+
+    <ImageView
+        android:id="@+id/iv_health_care_hero"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/tv_health_info_heading"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:background="@color/colorPrimary"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_placeholder" />
+
+    <TextView
+        android:id="@+id/tv_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_health_care_hero"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:background="@drawable/chip"
+        android:fontFamily="@font/roboto_regular"
+        android:paddingBottom="@dimen/margin_small"
+        android:paddingLeft="@dimen/margin_medium"
+        android:paddingRight="@dimen/margin_medium"
+        android:paddingTop="@dimen/margin_small"
+        android:text="article"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_regular" />
+
+    <TextView
+        android:id="@+id/tv_publisher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_type"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_toRightOf="@+id/tv_type"
+        android:ellipsize="end"
+        android:fontFamily="@font/roboto_regular"
+        android:lineSpacingMultiplier="1.3"
+        android:maxLines="1"
+        android:padding="@dimen/margin_small"
+        android:text="သစ္ထူးလြင္"
+        android:textColor="@color/colorTextSecond"
+        android:textSize="@dimen/text_regular" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_share"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignTop="@+id/tv_type"
+        android:layout_marginRight="@dimen/margin_small"
+        app:civ_border_width="1dp"
+        app:civ_border_color="@color/colorSecondary"
+        android:layout_toLeftOf="@+id/tv_comment"
+        android:src="@drawable/ic_thit"
+        android:elevation="@dimen/margin_small"/>
+
+
+
+    <TextView
+        android:id="@+id/tv_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/iv_share"
+        android:layout_alignParentRight="true"
+        android:fontFamily="@font/roboto_regular"
+        android:paddingLeft="@dimen/margin_small"
+        android:paddingTop="3dp"
+        android:text="Posted - 2016"
+        android:textColor="@color/colorTextSecond"
+        android:textSize="@dimen/text_small" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignLeft="@+id/tv_type"
+        android:layout_alignRight="@+id/iv_health_care_hero"
+        android:layout_below="@+id/tv_type"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:background="#BDBDBD" />
+
+</RelativeLayout>
