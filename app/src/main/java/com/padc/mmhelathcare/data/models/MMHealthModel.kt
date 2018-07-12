@@ -1,7 +1,12 @@
 package com.padc.mmhelathcare.data.models
 
+import com.padc.mmhelathcare.data.vos.HealthCareInfoVO
+import com.padc.mmhelathcare.events.SuccessGetHealthCareEvent
 import com.padc.mmhelathcare.network.MMHealthCareDataAgent
 import com.padc.mmhelathcare.network.RetrofitDataAgentImpl
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 /**
  *
@@ -27,9 +32,29 @@ class MMHealthModel {
 
     }
 
+    private var mDataRepo: HashMap<Int, HealthCareInfoVO> = HashMap()
+
     private constructor() {
 
         mDataAgent = RetrofitDataAgentImpl.getObjectReference()
+        EventBus.getDefault().register(this)
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onSuccessGetHealthInfo(event: SuccessGetHealthCareEvent) {
+        setHealthInfoDataRepo(event.healthCareList)
+    }
+
+    fun setHealthInfoDataRepo(mHealthList: List<HealthCareInfoVO>) {
+
+        for (healthCare: HealthCareInfoVO in mHealthList) {
+            mDataRepo[healthCare.id] = healthCare
+        }
+    }
+
+    fun getHealthInfoById(id: Int): HealthCareInfoVO? {
+
+        return mDataRepo[id]
     }
 
     fun loadHealthCareInfo() {
